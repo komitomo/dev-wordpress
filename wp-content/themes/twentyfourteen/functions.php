@@ -513,3 +513,34 @@ require get_template_directory() . '/inc/customizer.php';
 if ( ! class_exists( 'Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow'] ) {
 	require get_template_directory() . '/inc/featured-content.php';
 }
+
+// カスタム投稿タイプを作成する
+add_action('init', 'add_websites_post_type');
+
+function add_websites_post_type() {
+	$params = array(
+	  'labels' => array(
+			'name' => 'サイト',
+			'singular_name' => 'サイト',
+			'add_new' => '新規追加',
+			'add_new_item' => 'サイトを新規追加',
+			'edit_item' => 'サイトを編集する',
+			'new_item' => '新規サイト',
+			'all_items' => 'サイト一覧',
+			'view_item' => 'サイトの説明を見る',
+			'search_items' => '検索する',
+			'not_found' => 'サイトが見つかりませんでした。',
+			'not_found_in_trash' => 'ゴミ箱内にサイトが見つかりませんでした。'
+			),
+		'public' => true,
+		'has_archive' => true,
+		'supports' => array(
+			'title',
+			'editor',
+			'author',
+			'custom-fields',
+			),
+		 'taxonomies' => array('websites_category','websites_tag')
+	);
+	register_post_type('websites', $params);
+}

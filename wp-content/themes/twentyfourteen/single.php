@@ -24,7 +24,7 @@ get_header(); ?>
 echo get_field('test_field',$post->ID)."<br/>";
 echo nl2br(get_field('description',$post->ID))."<br/>";
 echo nl2br(get_field('description2',$post->ID))."<br/>";
-
+var_dump($post);
 
 
 
