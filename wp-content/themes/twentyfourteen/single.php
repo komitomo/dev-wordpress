@@ -21,6 +21,12 @@ get_header(); ?>
 					 * (where ___ is the post format) and that will be used instead.
 					 */
 					get_template_part( 'content', get_post_format() );
+echo get_field('test_field',$post->ID)."<br/>";
+echo nl2br(get_field('description',$post->ID))."<br/>";
+echo nl2br(get_field('description2',$post->ID))."<br/>";
+
+
+
 
 					// Previous/next post navigation.
 					twentyfourteen_post_nav();
